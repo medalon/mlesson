@@ -21,5 +21,6 @@ import kabar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('kabar/', include('kabar.urls'))
+    path('kabar/', include('kabar.urls')),
+	path('blog/', include('blog.urls', namespace='blog')),
 ]
