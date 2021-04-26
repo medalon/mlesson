@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kabar.apps.KabarConfig',
 	'blog.apps.BlogConfig',
+	'taggit',
 ]
 
 MIDDLEWARE = [
