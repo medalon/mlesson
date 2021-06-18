@@ -1,0 +1,5 @@
+<div class="list-group">
+    <a href="{% url 'editprofile' %}" class="list-group-item list-group-item-action {% if section == 'edit' %} active {% endif %}">Изменить профиль</a>
+    <a href="{% url 'userdopinfo' %}" class="list-group-item list-group-item-action {% if section == 'dopinfo' %} active {% endif %}">Доп информация</a>
+    <a href="{% url 'password_change' %}" class="list-group-item list-group-item-action {% if section == 'changepass' %} active {% endif %}">Изменить пароль</a>
+</div>
