@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', include('news.urls', namespace='news')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('comment/', include('comment.urls')),
 ]
 
 if settings.DEBUG:

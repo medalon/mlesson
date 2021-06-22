@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Comment
+from .models import News
 
 
 @admin.register(News)
@@ -12,9 +12,3 @@ class NewsAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
 
-
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'news', 'created', 'active')
-    list_filter = ('active', 'created', 'updated')
-    search_fields = ('name', 'txt')

@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import News, Comment
+from .models import News
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
-from .forms import EmailNewsForm, CommentForm
+from .forms import EmailNewsForm
 from django.core.mail import send_mail
 
 
@@ -39,25 +39,15 @@ def news_detail(request, year, month, day, news):
                                     publish__month=month,
                                     publish__day=day)
 
-    comments = news.comments.filter(active=True)
+
 
     new_comment = None
 
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.news = news
-            new_comment.save()
-    else:
-        comment_form = CommentForm()
 
     return render(request,
                     'news/detail.html',
                     {'news': news,
-                    'comments': comments,
-                    'new_comment': new_comment,
-                    'comment_form': comment_form})
+                    'new_comment': new_comment,})
 
 
 def news_share(request, news_id):

@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import fields, widgets
-from .models import Comment
+
 
 
 class EmailNewsForm(forms.Form):
@@ -10,8 +10,3 @@ class EmailNewsForm(forms.Form):
                                 widget=forms.Textarea(attrs={"class": "form-control",
                                                                 "rows": 5}))
 
-
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ('name', 'txt')
